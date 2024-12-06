@@ -13,7 +13,9 @@ RUN make install
 
 WORKDIR /root
 COPY . .
+RUN mkdir bin
 RUN make
+RUN rm -rf bin/
 
 WORKDIR /root/bot
 CMD ["./main", "config.json", "&"]
